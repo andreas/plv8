@@ -66,6 +66,9 @@ void* ArrayAllocator::Reallocate(void *data, size_t old_length, size_t new_lengt
 		if (!check(delta)) {
 			return nullptr;
 		}
+	} else {
+		allocated += delta;
+		next_size += delta;
 	}
 	return this->allocator->Reallocate(data, old_length, new_length);
 }
